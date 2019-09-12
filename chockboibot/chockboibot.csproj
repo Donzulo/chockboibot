@@ -10,14 +10,4 @@
     <PackageReference Include="DotNetEnv" Version="1.2.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="assets\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="assets\token.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-
 </Project>
