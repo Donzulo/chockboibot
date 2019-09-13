@@ -15,12 +15,9 @@ namespace chockboibot
         [Command("chock")]
         public async Task SayAsync(string msg)
         {
-            if(String.IsNullOrWhiteSpace(msg) || msg.Length > 100)
-            {
-                return;
-            }
+            if (String.IsNullOrWhiteSpace(msg) || msg.Length > 100) return;
 
-            Bitmap chockboi = GetBitmapFromFileAsync(@"\img\chockmand.png");
+            Bitmap chockboi = GetBitmapFromFileA(@"\img\chockmand.png");
             string secondText = "Jeg er stadigvæk i shock";
 
             RectangleF rectFirst = new RectangleF(0f, 0f, 865f, 220f);
@@ -71,12 +68,17 @@ namespace chockboibot
                 g.DrawPath(bigger, gPath2);
                 g.FillPath(Brushes.White, gPath2);
 
-                chockboi.Save(Directory.GetCurrentDirectory() + @"\chockboi1.png");
-                await Context.Channel.SendFileAsync("chockboi1.png");
+                using (MemoryStream stream = new MemoryStream())
+                {
+                    chockboi.Save(stream, ImageFormat.Png);
+                    stream.Seek(0, SeekOrigin.Begin);
+
+                    await Context.Channel.SendFileAsync(stream, "chockboi.png");
+                }
             }
         }
 
-        public Bitmap GetBitmapFromFileAsync(string imgFromRoot)
+        public Bitmap GetBitmapFromFileA(string imgFromRoot)
         {
             try
             {
