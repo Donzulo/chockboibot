@@ -15,6 +15,11 @@ namespace chockboibot
         [Command("chock")]
         public async Task SayAsync(string msg)
         {
+            if(String.IsNullOrWhiteSpace(msg) || msg.Length > 100)
+            {
+                return;
+            }
+
             Bitmap chockboi = GetBitmapFromFileAsync(@"\img\chockmand.png");
             string secondText = "Jeg er stadigvæk i shock";
 
