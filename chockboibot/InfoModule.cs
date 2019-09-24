@@ -17,7 +17,7 @@ namespace chockboibot
         {
             if (String.IsNullOrWhiteSpace(msg) || msg.Length > 100) return;
 
-            Bitmap chockboi = GetBitmapFromFileA(@"\img\chockmand.png");
+            Bitmap chockboi = GetBitmapFromFile(@"\img\chockmand.png");
 
             float imgWidth = chockboi.Width;
             float imgHeight = chockboi.Height;
@@ -82,7 +82,7 @@ namespace chockboibot
             }
         }
 
-        public Bitmap GetBitmapFromFileA(string imgFromRoot)
+        public Bitmap GetBitmapFromFile(string imgFromRoot)
         {
             try
             {
