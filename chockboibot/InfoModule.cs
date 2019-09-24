@@ -18,10 +18,14 @@ namespace chockboibot
             if (String.IsNullOrWhiteSpace(msg) || msg.Length > 100) return;
 
             Bitmap chockboi = GetBitmapFromFileA(@"\img\chockmand.png");
+
+            float imgWidth = chockboi.Width;
+            float imgHeight = chockboi.Height;
+
             string secondText = "Jeg er stadigvæk i shock";
 
-            RectangleF rectFirst = new RectangleF(0f, 0f, 865f, 220f);
-            RectangleF rectSecond = new RectangleF(0f, 801f, 865f, 200f);
+            RectangleF rectFirst = new RectangleF(0f, 0f, imgWidth, 220f);
+            RectangleF rectSecond = new RectangleF(0f, imgHeight-200f, imgWidth, 200f);
 
             FontFamily font = new FontFamily("Impact");
 
